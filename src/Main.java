@@ -2,6 +2,11 @@ import java.util.Scanner;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
+
+    String successNotice = "Success :)";
+    String errorNotice = "Error :(";
+    String existFail = " does not exist.";
+
     public static void main(String[] args) {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
@@ -79,6 +84,11 @@ public class Main {
 
     public static String handleCheckIn(Scanner console){
         String guestName = ""; // placeholder
+        // successNotice
+        // errorNotice
+        // existFail
+        String bookNotice = " is booked in capsule #";
+        String occupiedNotice = " is occupied.";
         return guestName;
     }
 
@@ -101,6 +111,11 @@ public class Main {
      */
 
     public static boolean handleCheckOut(Scanner console){
+        String sorryNotice = "Sorry... check out is only available if there's at least one guest.";
+        String checkoutNotice = " checked out from capsule #";
+        String vacantNotice = " is unoccupied";
+        // successNotice
+        // errorNotice
         return true; // placeholder
     }
 
@@ -130,7 +145,9 @@ public class Main {
      */
 
     public static void viewGuests(Scanner console){
-
+        System.out.println("Enter a room #:");
+        String vacantStatus = "[unoccupied]";
+        // errorNotice
     }
 
     /**
@@ -142,7 +159,12 @@ public class Main {
      */
 
     public static boolean confirmExit(Scanner console){
-        System.out.println("Are you sure you wish to exit CapsKeeper?");
-        return true; // placeholder
+        System.out.println("Are you sure you wish to exit CapsKeeper? (Enter Y to Exit)");
+        if(console.nextLine().equalsIgnoreCase("y")) {
+            return true; // placeholder
+        }
+        else{
+            return false;
+        }
     }
 }
