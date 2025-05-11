@@ -3,26 +3,26 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
 
-    String successNotice = "Success :)";
-    String errorNotice = "Error :(";
-    String existFail = " does not exist.";
+    // public String successNotice = "Success :)";
+    // public String errorNotice = "Error :(";
+    // public String existFail = " does not exist.";
 
     public static void main(String[] args) {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
         System.out.println("Welcome to CapsKeeper!");
         System.out.println("How many capsules are available today?");
-
-        String[] capsules = {""}; // placeholder
-
-        // Menu
-
         Scanner console = new Scanner(System.in);
+        int choiceNum = Integer.getInteger(console.nextLine());
+        String[] capsules = new String[choiceNum]; // placeholder
+
+        // Main Menu
+
         boolean escapeMenu = false;
         while(!escapeMenu){
             switch(getMenuOption(console)){
                 case "1":
-                    handleCheckIn(console);
+                    handleCheckIn(console, "Placeholder Name");
                     break;
                 case "2":
                     handleCheckOut(console);
@@ -82,14 +82,29 @@ public class Main {
      * Capsule #5 is occupied. (5 is an example, should be replaced by the capsule number the user tries to input)
      */
 
-    public static String handleCheckIn(Scanner console){
-        String guestName = ""; // placeholder
+    public static boolean handleCheckIn(Scanner console, String guestName){
         // successNotice
         // errorNotice
         // existFail
         String bookNotice = " is booked in capsule #";
         String occupiedNotice = " is occupied.";
-        return guestName;
+
+        System.out.println("Enter guest name:");
+        String guestName2 = console.nextLine();
+        System.out.println("Enter room #:");
+        int choiceNum = Integer.getInteger(console.nextLine());
+        System.out.println("Capsule: Guest");
+        if(false) { // test to see if room number exists
+            System.out.println("Error :(");
+            System.out.println("Capsule #" + choiceNum + " does not exist.");
+            return false;
+        }
+        if(false){ // test to see if occupied
+            System.out.println("Error :(");
+            System.out.println("Capsule #" + choiceNum + occupiedNotice);
+        }
+
+        return true;
     }
 
     /**
@@ -116,6 +131,24 @@ public class Main {
         String vacantNotice = " is unoccupied";
         // successNotice
         // errorNotice
+
+        if(false) { // check if hotel is empty
+            System.out.println(sorryNotice);
+            return false;
+        }
+        System.out.println("Enter room #:");
+        int choiceNum = Integer.getInteger(console.nextLine());
+        System.out.println("Capsule: Guest");
+        if(false) { // test to see if room number exists
+            System.out.println("Error :(");
+            System.out.println("Capsule #" + choiceNum + " does not exist.");
+            return false;
+        }
+        if(false){ // test to see if unoccupied
+            System.out.println("Error :(");
+            System.out.println("Capsule #" + choiceNum + vacantNotice);
+        }
+
         return true; // placeholder
     }
 
@@ -145,9 +178,26 @@ public class Main {
      */
 
     public static void viewGuests(Scanner console){
-        System.out.println("Enter a room #:");
         String vacantStatus = "[unoccupied]";
         // errorNotice
+
+        System.out.println("Enter room #:");
+        int choiceNum = Integer.getInteger(console.nextLine());
+        System.out.println("Capsule: Guest");
+        if(false) { // test to see if room number exists
+            System.out.println("Error :(");
+            System.out.println("Capsule #" + choiceNum + " does not exist.");
+            return;
+        }
+        if(choiceNum < 6) {
+            choiceNum = 6;
+        }
+        /*if(choiceNum > (max-5)) { // what is max?
+            choiceNum = max;
+        }*/
+        for(int i = choiceNum-10; i <= choiceNum+10; i++){
+            System.out.println(i);
+        }
     }
 
     /**
